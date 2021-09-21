@@ -1,0 +1,114 @@
+.container-fluid .contentLeft {
+    background-image: url("https://s3-alpha-sig.figma.com/img/94cf/d4df/dd22d129a5bbab44da4da62471dafa2a?Expires=1632700800&Signature=M2uUeH4McMcsOebBHJm0aMQoAxUKeGqFBwCcDqvAU05~mnv-zYRWrZRKkwrqPZnF40WMu8jO3PoYAhJr4t2hB1gayVVIPQyABeDhZVI80GLvweu4yirB4AcEMuINaznShK5XT4KrAv5UryeFwqED4mkHF4~~GS-b4dNJ-HgUh1jhWJ9g0MEWPQKLEIfpE6VsgdLNP21XUgwUVAqSukg9t06TUw8rbB0c-ySNLkFAPzsp2yA2lse2ML-edGXkF0-jXKwGa07vO2eB1ZafU-Uc6oOvuX6rxLxmnvRH8Fjht81t8HW5JalCSnKRrfpXvaBFhTjWJcttSqCqp52D1vgXYQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA") !important;
+    background-position: center;
+    background-size: cover;
+    width: 40%;
+    /* height: 100vh; */
+}
+
+.contentRight .navbar-brand {
+    cursor: pointer;
+}
+
+.container-fluid .contentRight {
+    height: 120vh;
+}
+
+.container-fluid .contentRight a {
+    text-decoration: none !important;
+    color: #000 !important;
+    font-size: 24px !important;
+    font-weight: 700 !important;
+}
+
+.container-fluid .contentRight .login {
+    padding-top: 10px !important;
+}
+
+.container-fluid .contentRight .login button {
+    width: 150px;
+    height: 45px;
+    background-color: #ffba33;
+    border-radius: 50px;
+    box-shadow: 0px 6px 20px rgba(255, 186, 51, 0.4);
+    color: #6A4029;
+}
+
+.container-fluid .contentRight form .labelEmail,
+.container-fluid .contentRight form .labelPwd,
+.container-fluid .contentRight form .labelPhone,
+.container-fluid .contentRight form .labelImage,
+.container-fluid .contentRight form .labelName {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4F5665;
+    margin-bottom: 15px;
+}
+
+.container-fluid .contentRight form .labelPwd,
+.container-fluid .contentRight form .labelEmail,
+.container-fluid .contentRight form .labelImage,
+.container-fluid .contentRight form .labelPhone {
+    margin-top: 15px;
+}
+
+.container-fluid .contentRight form #email,
+.container-fluid .contentRight form #password,
+.container-fluid .contentRight form #phone,
+.container-fluid .contentRight form #name {
+    width: 100%;
+    height: 65px;
+    border-radius: 20px;
+    padding: 0.675rem .75rem !important;
+}
+
+.container-fluid .contentRight form .btnSignUp,
+.container-fluid .contentRight form .btnGooggle {
+    width: 100%;
+    height: 70px;
+    border-radius: 20px;
+    border: none;
+    background-color: #ffba33;
+    color: #6A4029 !important;
+    font-weight: bold !important;
+}
+
+.container-fluid .contentRight form .btnSignUp a {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 25px;
+    color: #6A4029 !important;
+}
+
+.member {
+    width: 70% !important;
+    height: 160px;
+    margin-left: 300px !important;
+    margin-top: -80px !important;
+    border-radius: 20px !important;
+    padding: 30px;
+}
+
+.member .btnCreate {
+    width: 250px;
+    height: 60px;
+    background-color: #ffba33;
+    color: #6a4029;
+    border-radius: 10px;
+    box-shadow: 0px 6px 20px rgba(255, 186, 51, 0.4);
+}
+
+.footerSignUp {
+    background-color: #F8F8F8;
+    margin: 0px !important;
+    padding-top: 150px !important;
+}
+
+@media screen and (max-width: 768px) {
+    .container-fluid .contentRight .login button {
+        width: 130px;
+    }
+}

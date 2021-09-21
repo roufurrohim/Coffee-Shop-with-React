@@ -1,0 +1,138 @@
+.navbar,
+#nav {
+  width: 100% !important;
+}
+
+nav .icon {
+  margin-left: 30px;
+  margin-right: 10px;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+nav h4 {
+  color: #000;
+  font-size: 24px !important;
+  font-weight: 700;
+}
+.navCenter .navbar-nav a {
+  text-decoration: none !important;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: #4F5665;
+}
+
+.navbar-collapse {
+  flex-grow: 0.9 !important;
+}
+
+.navCenter .navbar-nav a:hover {
+  color: #6a4029 !important;
+  font-weight: 700;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.navRight {
+  display: flex !important;
+}
+
+.navRight .login {
+  margin-right: 35%;
+}
+
+.navRight .btnReg {
+  width: 150px;
+  height: 45px;
+  background-color: #ffba33;
+  border-radius: 50px;
+  font-weight: bold;
+  color: #6a4029 !important;
+  box-shadow: 0px 6px 20px rgba(255, 186, 51, 0.4);
+}
+
+.navRight .nav-item form button .iconSearch {
+  background: none !important;
+  border: none !important;
+}
+
+.navRight .nav-item form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px !important;
+  height: 45px;
+  background-color: #EFEEEE;
+  border-radius: 30px;
+}
+
+.navRight .nav-item input {
+  width: 60% !important;
+  border: none;
+  background-color: #EFEEEE !important;
+}
+
+.popup {
+  position: absolute;
+  background-color: rgba(106, 64, 41, 1);
+  color: #fff;
+  width: 13px;
+  height: 13px;
+  margin-top: -9px;
+  margin-left: -4px;
+  border-radius: 13px;
+  font-size: 10px;
+  font-family: "Rubik", sans-serif;
+  text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+  nav .icon {
+    margin-left: 10px;
+  }
+  .navbar-collapse {
+    flex-grow: 0.3 !important;
+  }
+
+  .navCenter .navbar-nav a {
+    margin: 10px 0px;
+  }
+
+  .navRight .login {
+    margin-right: 15px !important;
+  }
+
+  .toggleNav {
+    margin-right: 15px;
+  }
+
+  .navCenter {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+  .navCenter li {
+    margin: 15px 0px;
+  }
+
+  .navRight {
+    display: flex !important;
+    flex-direction: row !important;
+  }
+
+  .navbar .login {
+    width: 150px;
+    height: 45px;
+    text-align: center;
+    margin-right: 10%;
+    border-radius: 50px;
+    border: 1px solid #ffba33;
+  }
+}

@@ -1,0 +1,32 @@
+.imgModal {
+    width: 150px !important;
+    height: 150px;
+}
+.modal .handleBtn .add {
+    /* width: 194px; */
+    width: 40%;
+    height: 44px;
+    background: #6A4029;
+    border-radius: 20px;
+    margin-left: 40px;
+
+}
+
+.modal .handleBtn .cancel {
+    /* width: 194px; */
+    width: 40%;
+    height: 44px;
+    background: #fff;
+    border-color: #6A4029;
+    border-radius: 20px;
+    color: #6A4029;
+}
+
+@media screen and (max-width: 768px) {
+    .modal .handleBtn .add,
+    .modal .handleBtn .cancel {
+        width: 100%;
+        margin-left: 0px;
+        margin-top: 20px;
+    }
+}
