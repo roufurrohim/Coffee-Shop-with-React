@@ -27,40 +27,6 @@ body {
     border-radius: 50% ;
 }
 
-.details .row .left .delivery {
-    width: 30.5rem;
-    height: 24rem;
-    background: #FFF;
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.03);
-    border-radius: 20px;
-}
-
-.details .row .left .delivery .card-body h5 {
-    font-size: 25px;
-    line-height: 37.5px;
-}
-
-.dineIn .btn-outline,
-.cod .btn-outline,
-.pickUp .btn-outline,
-.yes .btn-outline,
-.no .btn-outline {
-    color: #9f9f9f;
-    background: #F4F4F8;
-    border: 1px solid rgba(186, 186, 186, 0.35);
-    box-sizing: border-box;
-    border-radius: 10px;
-}
-
-.btn-check:active+.btn-outline, 
-.btn-check:checked+.btn-outline, 
-.btn-outline:active {
-    color: #fff;
-    background-color: #6A4029;
-    border-color: #6A4029;;
-
-}
-
 .details .row .right {
     display: flex;
     flex-direction: column;
@@ -151,7 +117,7 @@ body {
 }
 
 .handleCekout .size {
-    width: 362px;
+    width: 20%;
     height: 168px;
     display: flex;
     flex-direction: column;
@@ -349,6 +315,10 @@ body {
         margin-top: 0px;
         margin-left: 5px !important;
         width: 100%;
+    }
+
+    .handleCekout .size {
+        width: 97%;
     }
 
     .handleCekout .itemCart {

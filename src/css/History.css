@@ -1,0 +1,46 @@
+.bgHistory {
+    background-image: url('https://s3-alpha-sig.figma.com/img/e28e/5de4/4a9e22aa898e67b55b5a3d7685117d1d?Expires=1633305600&Signature=R3nOTTqscqGXEMyDqmNoVCpmqmohcbYKIhhqe6gSVMOMnFu4yYVZZHbhSKqG5~wX-rDk71FCi3W7Mp3K4dvVcqh2YZwcSls89rd72ejVPrqFbUQMO-fSumf6-S-WSuXsfD96RgCoJFEwyrihyJjwa3EpiV61ozkcJCFoO4nE0OkwxvR51LBfH~yQ2H67WWIzzdnPwbEH-IqXf8wCR8XIzo3GC0HvuNhg~UgsbygHJhmWGfqQxH4ol7J55LiNWuaMM6lufVapQo6ID6pudylV6bTlGnqWG~xF5UJY8VSg1syXJQ-IVQ6KzJiQLnl~aVQKq1o8yxEDr6v-NdKIXnOHMg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+    height: 100%;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: relative; */
+}
+
+.bgHistoryNone {
+    background-image: url('https://s3-alpha-sig.figma.com/img/e28e/5de4/4a9e22aa898e67b55b5a3d7685117d1d?Expires=1633305600&Signature=R3nOTTqscqGXEMyDqmNoVCpmqmohcbYKIhhqe6gSVMOMnFu4yYVZZHbhSKqG5~wX-rDk71FCi3W7Mp3K4dvVcqh2YZwcSls89rd72ejVPrqFbUQMO-fSumf6-S-WSuXsfD96RgCoJFEwyrihyJjwa3EpiV61ozkcJCFoO4nE0OkwxvR51LBfH~yQ2H67WWIzzdnPwbEH-IqXf8wCR8XIzo3GC0HvuNhg~UgsbygHJhmWGfqQxH4ol7J55LiNWuaMM6lufVapQo6ID6pudylV6bTlGnqWG~xF5UJY8VSg1syXJQ-IVQ6KzJiQLnl~aVQKq1o8yxEDr6v-NdKIXnOHMg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+    height: 120vh;
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* position: relative; */
+}
+
+.titleHistory {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+}
+
+.titleHistory .noteHistory {
+    font-style: normal;
+    font-size: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+    
+}
+
+.cardHistory {
+    border-radius: 20px !important;
+}
+
+.detailsHis {
+    cursor: pointer;
+}

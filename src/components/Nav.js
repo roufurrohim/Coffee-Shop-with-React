@@ -13,19 +13,13 @@ import {
   Form,
   Input,
 } from "reactstrap";
-import { useSelector } from 'react-redux';
 import { API_URL } from '../helpers/env';
 
-const NavbarItem = ({ isLogin, change, searchProd, submit }) => {
+const NavbarItem = ({ level, token, image, change, searchProd, submit }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
 
-
-  const count = useSelector((state) => state.user)
-  const dataUser = count.all
-  const image = dataUser.picture
-  // console.log(dataUser.data)
   return (
     <div className="navbar">
       <Navbar id="nav" color="white" light expand="lg">
@@ -57,15 +51,24 @@ const NavbarItem = ({ isLogin, change, searchProd, submit }) => {
                 Products
             </NavLink>
 
-            <NavLink id="RouterNavLink" className="yourCart" to="/cart">
+            <NavLink id="RouterNavLink" className={level === null ? "d-block" : level === '1' ? "yourCart" : "d-none"} to="/cart">
               Your Cart
             </NavLink>
-            <NavLink id="RouterNavLink" className="history" to="#">
+            
+            <NavLink id="RouterNavLink" className={ level === '0' ? "d-block" : "d-none"} to="#">
+              Orders
+            </NavLink>
+            
+            <NavLink id="RouterNavLink" className={ level === '0' ? "d-block" : "d-none"} to="#">
+              Dashboard
+            </NavLink>
+
+            <NavLink id="RouterNavLink" className={level === null ? "d-block" : level === '1' ? "history" : "d-none"} to="/history">
               History
             </NavLink>
           </Nav>
 
-          {isLogin === false ? (
+          {token === null ? (
             <Nav
               className="d-flex me-lg-5 ms-lg-auto ms-md-5 justify-content-md-center align-items-md-center navRight"
               navbar
@@ -115,17 +118,17 @@ const NavbarItem = ({ isLogin, change, searchProd, submit }) => {
                 </button>
               </NavItem>
 
-              <NavItem>
+              <NavLink to="/profile">
                 <button type="submit" className="btn">
                   
                   <img
-                    src={API_URL+image}
+                    src={image === undefined ? null : API_URL+image}
                     alt="profile"
                     style={{ width: "40px", height: "40px", objectFit: "cover" }}
                     className=" rounded-circle"
                   />
                 </button>
-              </NavItem>
+              </NavLink>
             </Nav>
           )}
         </Collapse>

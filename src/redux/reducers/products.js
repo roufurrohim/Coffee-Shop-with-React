@@ -16,14 +16,17 @@ const productsReducer = (state=initialState, action) => {
         case "GET_ALL_PRODUCTS_FULLFILLED":
             return {
                 ...state,
-                loadAll: true,
-                all: action.payload.data.data
+                loadAll: false,
+                errorAll: false,
+                all: action.payload.data.data,
+                errorAllMessage: action.payload.message
             }
 
         case "GET_ALL_PRODUCTS_REJECTED":
             return {
                 ...state,
                 loadAll: false,
+                errorAll: true,
                 errorAllMessage: action.payload
             }
     

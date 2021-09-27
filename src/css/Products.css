@@ -27,6 +27,34 @@ body {
     color: #fff;
 }
 
+.promo .cardPromo .btnPromo {
+    width: 60%;
+    height: 30%;
+    background: #FFBA33;
+    border-radius: 20px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    color: #6A4029;
+}
+
+.promo .cardPromo .btnEditPromo {
+    width: 60%;
+    height: 20%;
+    background-color: #6A4029;
+    border-radius: 20px;
+    color: #fff;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+}
+
+
+
 .product .navProduct .navbar-nav .nav-item {
     font-style: normal;
     font-weight: normal;
@@ -128,6 +156,10 @@ body {
     .promo .cardPromo .terms ol li {
         width: 100% !important;
     }
+
+    .product {
+        border-top: 1px solid #dee2e6 !important;
+    }
     
     .product .navProduct {
         width: 100% !important;
@@ -166,13 +198,14 @@ body {
         margin-top: -20px;
     }
 
-    .product .prod .card #product11 {
-        margin-bottom: 55px !important;
+    .product .prod .card #product69,
+    .product .prod .card #product75 {
+        margin-bottom: 25px !important;
     }
 
-    .product .prod .card #product12,
-    .product .prod .card #product3 {
-        margin-bottom: 25px !important;
+    .product .prod .card #product65,
+    .product .prod .card #product71 {
+        margin-bottom: 55px !important;
     }
     
       .product .itemProduct {

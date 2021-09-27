@@ -6,6 +6,8 @@ import Products from '../pages/Products'
 import Details from '../pages/Details'
 import Edit from '../pages/Edit'
 import Chart from '../pages/Chart'
+import History from '../pages/History';
+import Profile from '../pages/Profile'
 import Guard from './Guard'
 
 const Router = () => {
@@ -30,6 +32,10 @@ const Router = () => {
             <Guard path="/edit/:id" component={Edit} />
 
             <Guard path="/cart" component={Chart} />
+            
+            <Guard path="/history" component={History} />
+            
+            <Guard path="/profile" component={Profile} />
 
             <Route>
                 Not Found

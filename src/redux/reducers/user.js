@@ -17,8 +17,9 @@ const userReducer = (state=initialState, action) => {
         case "GET_USER_FULLFILLED":
             return {
                 ...state,
-                loadAll: true,
-                all: action.payload
+                loadAll: false,
+                all: action.payload.data,
+                errorAllMessage: "Get User Success"
             }
 
         case "GET_USER_REJECTED":

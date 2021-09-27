@@ -1,16 +1,15 @@
 import {useState} from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux';
-import { ACTION_GET_USER } from '../redux/actions/user';
+import { useDispatch } from 'react-redux';
+import { ACTION_GET_USER, LOGIN } from '../redux/actions/user';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import FooterComp from "../components/Footer";
 
 const Login = () => {
 
   const dispatch = useDispatch();
-  const count = useSelector((state) => state.user)
-  const dataUser = count.all
-  console.log(dataUser.token)
+  // const count = useSelector((state) => state.user)
+  // const dataUser = count.all
 
   const [input, setInput] = useState(
     {
@@ -47,11 +46,26 @@ const Login = () => {
       email : input.email,
       password : input.password
     }
-    dispatch(ACTION_GET_USER(payload))
-    const dataToken = dataUser.token
-    localStorage.setItem('token', dataToken)
-    resetInput()
-    history.push('/')
+    LOGIN(payload)
+    .then((res) => {
+      const token = res.data.token
+      const picture = res.data.picture
+      const id = res.data.id
+      const level = res.data.level
+      localStorage.setItem('id', id)
+      localStorage.setItem('picture', picture)
+      localStorage.setItem('token', token)
+      localStorage.setItem('level', level)
+      alert(res.message)
+      dispatch(ACTION_GET_USER(id))
+      resetInput()
+      history.push('/')
+    })
+    .catch((err) => {
+      const msg = err.response.data.message
+      alert(msg)
+    })
+   
   };
 
   return (

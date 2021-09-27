@@ -10,7 +10,8 @@ const Register = () => {
   const [form, setForm] = useState({
       email: "",
       password: "",
-      phone: "",
+      phone: " ",
+      address: " ",
       gender: "male",
       date: "1999-12-12",
       level: 1,
@@ -145,7 +146,7 @@ const Register = () => {
                     <FormGroup>
                       <Label for="phone" className="labelPhone">Phone:</Label>
                       <Input
-                        type="text"
+                        type="number"
                         name="phone"
                         id="phone"
                         placeholder="Enter your Phone"

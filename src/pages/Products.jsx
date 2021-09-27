@@ -1,26 +1,28 @@
-import React, { useEffect, useState , createContext} from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, useLocation } from 'react-router-dom';
-import { ACTION_GET_ALL_PRODUCTS, INSERT } from "../redux/actions/products";
+import { useHistory, useLocation } from "react-router-dom";
+import { ACTION_GET_ALL_PRODUCTS, ACTION_GET_SEARCH_PRODUCTS, INSERT } from "../redux/actions/products";
 import FooterComp from "../components/Footer";
-import CardProducts from "../components/CardProducts";
+import { API_URL } from '../helpers/env';
 import NavbarComp from "../components/Nav";
 import ModalAdd from "../components/ModalAdd";
 import "../css/Products.css";
 
-export const DataContext = createContext();
 
 const Products = () => {
   const dispatch = useDispatch();
 
-  const count = useSelector((state) => state.products);
-  const dataProducts = count.all;
+  const allProducts = useSelector((state) => state.products);
+  const dataProducts = allProducts.all;
+
+  // const countUser = useSelector((state) => state.user);
+  // const dataUser = countUser.all.data;
 
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
 
-  const [products, setProducts] = useState(dataProducts);
-  //   const [filteredData, setFilteredData] = useState([])
+  // const [products, setProducts] = useState(dataProducts);
+  
   const [search, setSearch] = useState("");
 
   // eslint-disable-next-line no-unused-vars
@@ -57,29 +59,18 @@ const Products = () => {
   ]);
 
   const [addProduct, setAddProduct] = useState({
-    nameProduct:"",
-    image:"",
+    nameProduct: "",
+    image: "",
     imagePreview: "",
-    description:"",
-    stock:"",
-    discount:"",
-    days:"",
-    time:"",
-    category:"",
-    details: [
-      {
-        size: "",
-        price:""
-      },
-    ]
-  })
-
-  const [details, setDetails] = useState([
-    {
-      size: "",
-      price: ""
-    }
-  ])
+    description: "",
+    stock: "",
+    discount: "",
+    days: "",
+    time: "",
+    category: "",
+    size: "",
+    price: "",
+  });
 
   const changeHandlerAdd = (e) => {
     setAddProduct({
@@ -88,18 +79,9 @@ const Products = () => {
     });
   };
 
-  const changeHandlerDetails = (e) => {
-    setDetails(
-        {...details, [e.target.name]: e.target.value, }
-      )
-  }
+  const history = useHistory();
 
-  const countUser = useSelector((state) => state.user)
-  const dataUser = countUser.all
-
-  const history = useHistory()
-
-  const location = useLocation()
+  const location = useLocation();
 
   const query = new URLSearchParams(location.search);
   const nameSearch = query.get("search");
@@ -112,13 +94,11 @@ const Products = () => {
 
   useEffect(() => {
     if (nameSearch && nameSearch !== "") {
-      console.log(nameSearch)
-      const dataFill = dataProducts.filter((e) => e.name_product === nameSearch ? e : null)
-      setProducts(dataFill)
+      dispatch(ACTION_GET_SEARCH_PRODUCTS(nameSearch))
     } else {
-      setProducts(dataProducts)
+      dispatch(ACTION_GET_ALL_PRODUCTS())
     }
-      
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nameSearch]);
 
@@ -131,7 +111,7 @@ const Products = () => {
   const handleSubmitSearch = (e) => {
     e.preventDefault();
     history.push(`/products?search=${search}`);
-    setSearch("")
+    setSearch("");
   };
 
   const changeFile = (e) => {
@@ -142,66 +122,55 @@ const Products = () => {
     });
   };
 
-
   const handleSubmitAdd = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    setProducts({
-      ...addProduct,
-      details: [
-        ...addProduct.details,
-        {
-          price: details.price,
-          size: details.size
-        }
-    ]
-    })
+    const formData = new FormData();
+    formData.append("name", addProduct.nameProduct);
+    formData.append("image", addProduct.image);
+    formData.append("description", addProduct.description);
+    formData.append("stock", addProduct.stock);
+    formData.append("discount", addProduct.discount);
+    formData.append("category_id", addProduct.category);
+    formData.append("delivery_days", addProduct.days);
+    formData.append("delivery_time", addProduct.time);
+    formData.append("size", addProduct.size);
+    formData.append("price", addProduct.price);
 
-    console.log(addProduct.details[0])
-
-    const formData = new FormData()
-      formData.append("name", addProduct.nameProduct)
-      formData.append("image", addProduct.image)
-      formData.append("description", addProduct.description)
-      formData.append("stock", addProduct.stock)
-      formData.append("discount", addProduct.discount)
-      formData.append("category_id", addProduct.category)
-      formData.append("delivery_days", addProduct.days)
-      formData.append("delivery_time", addProduct.time)
-      formData.append("details", addProduct.details[0])
-      
- 
-      INSERT(formData)
+    INSERT(formData)
       .then((res) => {
-        alert(res.data.message)
-        // resetInput();
-        // history.push("/products")
+        alert(res.data.message);
+        dispatch(ACTION_GET_ALL_PRODUCTS())
+        toggle()
       })
       .catch((err) => {
-        alert(err.message)
-        // resetInput();
-      })
-    }
-
+        alert(err.message);
+      });
+  };
 
   const handleDetails = (id) => {
     history.push(`/details/${id}`);
-    localStorage.setItem("idProduct", id);
   };
 
   const numberWithCommas = (x) => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-}
+  };
+
+  const token = localStorage.getItem("token");
+  const picture = localStorage.getItem("picture");
+  const level = localStorage.getItem("level");
 
   return (
     <div>
       <div className="border-bottom">
-        <NavbarComp 
-        isLogin={true}
-        data={dataProducts}
-        searchProd={search}
-        change={changeHandlerSearch}
-        submit={handleSubmitSearch} />
+        <NavbarComp
+          isLogin={true}
+          data={dataProducts}
+          searchProd={search}
+          change={changeHandlerSearch}
+          submit={handleSubmitSearch}
+          token={token} image={picture} level={level}
+        />
       </div>
       <section className="container-fluid promo">
         <div className="row">
@@ -259,11 +228,29 @@ const Products = () => {
                 <li>Should make member card to apply coupon</li>
               </ol>
             </div>
+            <div className=" d-flex flex-lg-column align-items-center justify-content-center mt-lg-0 mt-3 addPromo">
+              <button
+                type="button"
+                className={
+                  level === '1' ? "d-none" : "d-block btn btnPromo me-lg-0 me-3"
+                }
+              >
+                Add New Promo
+              </button>
+              <button
+                type="button"
+                className={
+                  level === '1' ? "d-none" : "d-block btn btnEditPromo mt-lg-4"
+                }
+              >
+                Edit Promo
+              </button>
+            </div>
           </div>
 
-          <div className="col-lg-7 col-md-12 border-start product">
-            <div className="container-fluid mt-lg-3 mt-md-3 mt-4 mb-2">
-              <div className="row d-flex">
+          <div className="col-lg-7 col-md-12 mt-lg-0 mt-5 border-start product">
+            <div className="container-fluid mt-lg-3 mt-md-3 mb-2">
+              <div className="row d-flex mt-lg-0 mt-4">
                 <div className="navbar d-flex align-content-center navProduct">
                   <div className="navbar-nav flex-row ">
                     <button type="btn" className="btn nav-item col-7 fs-6">
@@ -288,12 +275,36 @@ const Products = () => {
 
             <div className="container-fluid mt-lg-5 mt-md-5 ms-lg-5 ms-md-0 menuProduct">
               <div className="row itemProduct">
-                <DataContext.Provider value={products}>
-                  <CardProducts
-                    handleDetails={handleDetails}
-                    numberWithCommas={numberWithCommas}
-                  />
-                </DataContext.Provider>
+              { allProducts.loadAll ? <h2>Loading...</h2> :
+            dataProducts.map((e, i) =>
+            <div key={i} className="col-lg-3 col-md-4 col-6 py-lg-3 py-md-3 py-3 prod">
+              <div
+                className="card bg-white border-0 shadow-lg rounded"
+                style={{width: '156px', height: '215px'}}
+                onClick={()=> handleDetails(e.id)}
+              >
+              <img src={API_URL+e.image}
+                    className="card-img-top rounded-circle position-absolute ms-3"
+                    style={{width: '120px', height: '120px'}}
+                    alt="Produk"
+                />
+                <div
+                  className={e.discount === 0 ? 'd-none' : 'discount'}
+                >
+                  {e.discount}%
+                </div>
+                <div className="card-body mt-lg-5 mt-md-5 mt-4">
+                  <p id={`product${e.id}`} className="col-lg-10 col-md-8 col-12 text-center ms-lg-2 text-lg-center ms-md-4 fw-bold mt-2 fs-5 mb-5 nameProd">
+                    {e.name_product}
+                  </p>
+                  <span className="fw-bold ms-lg-4 ms-md-4 ms-2">
+                    {/* {e.price} */}
+                    IDR {numberWithCommas(e.price)}
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
               </div>
               <div class="ms-lg-5 ms-md-5 mt-3 mb-3 note">
                 <p>*the price has been cutted by discount appears</p>
@@ -301,22 +312,23 @@ const Products = () => {
                   <button
                     type="button"
                     onClick={toggle}
-                    className={dataUser.level === 1 ? "d-none" : "d-block btn btnAdd me-lg-4"}
+                    className={
+                      level === '1'
+                        ? "d-none"
+                        : "d-block btn btnAdd me-lg-4"
+                    }
                     // className="btn btnAdd me-lg-4"
                   >
                     Add Products
                   </button>
-                  <DataContext.Provider value={products}>
                     <ModalAdd
                       modal={modal}
                       {...addProduct}
                       toggleModal={toggle}
                       change={changeHandlerAdd}
-                      changeFiles = {changeFile}
-                      changeDetails={changeHandlerDetails}
+                      changeFiles={changeFile}
                       submit={handleSubmitAdd}
                     />
-                  </DataContext.Provider>
                 </div>
               </div>
             </div>

@@ -96,7 +96,7 @@ const ModalAdd = ({ modal, toggleModal, nameProduct, imagePreview, change, chang
                   name="price"
                   id="price"
                   placeholder="exp 10000"
-                  onChange={(e)=> {changeDetails(e)}}
+                  onChange={(e)=> {change(e)}}
                 />
               </Col>
             </FormGroup>
@@ -108,7 +108,7 @@ const ModalAdd = ({ modal, toggleModal, nameProduct, imagePreview, change, chang
               <Col sm={8}>
                 <Input
                   type="text"
-                  name="day"
+                  name="days"
                   id="day"
                   placeholder="start day - end day"
                   onChange={(e)=> {change(e)}}
@@ -131,7 +131,7 @@ const ModalAdd = ({ modal, toggleModal, nameProduct, imagePreview, change, chang
             </FormGroup>
             <FormGroup>
               <Label for="size">Size</Label>
-              <Input type="select" name="size" id="size" onChange={(e)=> {changeDetails(e)}}>
+              <Input type="select" name="size" id="size" onChange={(e)=> {change(e)}}>
                 <option>Select Size</option>
                 <option value="R">R</option>
                 <option value="L">L</option>

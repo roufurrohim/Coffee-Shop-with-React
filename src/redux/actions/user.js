@@ -1,17 +1,32 @@
 import axios from 'axios'
 import { API_URL } from '../../helpers/env';
 
-export const ACTION_GET_USER = (payload) => {
+export const ACTION_GET_USER = (id) => {
+    
+    const token = localStorage.getItem('token')
+    
+    const headers = {
+        token: token
+    }
 
     return (dispatch) => {
         dispatch(userPending())
-        axios.post(`${API_URL}login`, payload ).then((res) => {
-            // console.log(res.data.data)
+        axios.get(`${API_URL}users/${id}`, {headers} ).then((res) => {
             dispatch(userFullfilled(res.data.data))
         }).catch((err) => {
             dispatch(userRejected(err))
         })
     }
+}
+
+export const LOGIN = (payload) => {
+    return new Promise((resolve, reject) => {
+        axios.post(`${API_URL}login`, payload).then((response) => {
+            resolve(response.data)
+        }).catch((err) => {
+            reject(err)
+        })
+    })
 }
 
 export const INSERT = (formData) => {
@@ -21,10 +36,8 @@ export const INSERT = (formData) => {
             'Content-Type': "multipart/form-data",
         }
         axios.post(`${API_URL}register`, formData, { headers }).then((response) => {
-            
-            resolve(response.data.data)
+            resolve(response)
         }).catch((err) => {
-            console.log(err)
             reject(err)
         })
     })

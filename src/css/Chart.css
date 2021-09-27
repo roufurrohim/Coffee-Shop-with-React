@@ -1,10 +1,10 @@
 .bgContainer {
     background-image: url('https://s3-alpha-sig.figma.com/img/0c77/3b4e/13c3507aae6dd22ab12f949706660279?Expires=1633305600&Signature=YGwc4ywm~SY8D6YVNI~XwkJaB~gUgpqfY7CNjQbvGRM85SdziKRBzK30IeMsszW8pwllTh0UA5V9STHcwxEdPd~P5DRE9d-uefCNtzt1JZQgGN8SLTYpDumMM6z4az90a95PKPksJ5HhmNaiDv7nKs7g7O0yOJ0oV3bpisoJls6q2MxYFzJZgVZHqXy3FY7Fe77uKSzqs87f~T517F4txTIrqCoPKW-bcwNlDL5qbXv8dW-8UKnB3XNwnNkKGp9ICQDT-SHTWPytwZT4LGRWs6s5E0yu2aoiF-60trygLC8P3bnPpd34ArbnWwKgvtF0Bf7iJR~gvNy85iNg3767Ow__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
-    height: 168vh;
+    height: 130vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    position: relative;;
+    position: relative;
 }
 
 .titleCheck {
@@ -25,15 +25,122 @@
 
 .addressDet {
     font-style: normal;
-font-weight: bold;
-font-size: 25px;
-line-height: 37px;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 37px;
+    color: #FFFFFF;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+}
 
-color: #FFFFFF;
+.dineIn .btn-outline,
+.cod .btn-outline,
+.pickUp .btn-outline {
+    color: #9f9f9f;
+    background: #F4F4F8;
+    border: 1px solid rgba(186, 186, 186, 0.35);
+    box-sizing: border-box;
+    border-radius: 10px;
+}
 
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.8);
+.btn-check:active+.btn-outline, 
+.btn-check:checked+.btn-outline, 
+.btn-outline:active {
+    color: #fff;
+    background-color: #6A4029;
+    border-color: #6A4029;;
+
+}
+
+
+.inputRadio {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.inputRadio:checked+ {
+    background-color: #6A4029 !important;
+    border-color: #6A4029 !important;
+}
+
+.iconCard {
+    width: 15% !important;
+    height: 40px;
+    padding: 5px;
+    background: #F47B0A;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.iconBank {
+    width: 15% !important;
+    height: 40px;
+    padding: 5px;
+    background: linear-gradient(0deg, #895537, #895537), #C4C4C4;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.iconCOD {
+    width: 15% !important;
+    height: 40px;
+    padding: 5px;
+    background: linear-gradient(0deg, #FFBA33, #FFBA33), #C4C4C4;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.labelCard {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 30px;
+    color: #000000;
+}
+
+.btnConfirm {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    background: #6A4029;
+    box-shadow: 0px 10px 20px rgba(137, 85, 55, 0.4);
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btnConfirm .btnCnP {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.btnConfirm .btnCnP:hover {
+    color: #fff;
 }
 
 .footCheck {
     padding-top: 60px;
+}
+
+@media screen and (max-width: 768px) {
+    .bgContainer {
+        height: 250vh;
+    }
+
+    .cod {
+        width: 41% !important;
+        margin-left: -27px !important;
+    }
+
+    .pickUp {
+        width: 31% !important;
+    }
+    
+    .iconCard,
+    .iconBank,
+    .iconCOD {
+        width: 20% !important;
+    }
 }

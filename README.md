@@ -1,70 +1,130 @@
-# Getting Started with Create React App
+# Coffee Shop App with ReactJS
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App Coffee Shop ini hanya UI dibuat dengan menggunakan framework ReactJS,
+dengan penambahan reactstrap untuk tampilan responsivenya, dan react-router-dom untuk management pindah halaman dan juga untuk management data di frontend menggunakan redux. Website ini ada 2 versi untuk User dan untuk Admin.
 
-## Available Scripts
 
-In the project directory, you can run:
+Dibawah ini adalah sample screenshoot dari App Coffee Shop tampilan website dan mobile untuk User
 
-### `yarn start`
+## Tampilan Website Home 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](img/web/landingBeforeLogin.png)
+![image](img/web/LandingAfterLogin.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `yarn test`
+## Tampilan Mobile Home
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![image](img/mobileUser/landingMobile.png)
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Tampilan Website Register
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](img/web/signUp.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
+## Tampilan Mobile Register
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![image](img/mobileUser/register.png)
+![image](img/mobileUser/register2.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Tampilan Website Login
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![image](img/web/login.png)
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Tampilan Mobile Login
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![image](img/mobileUser/login.png)
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tampilan Website Products
 
-### Analyzing the Bundle Size
+Di page Products ada fitur searching untuk mencari item products sesuai nama products dan ketika di click salah satu gambar maka akan menuju page details products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![image](img/web/products1.png)
+![image](img/web/products2.png)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Tampilan Mobile Products
 
-### Advanced Configuration
+![image](img/mobileUser/products1.png)
+![image](img/mobileUser/products2.png)
+![image](img/mobileUser/products3.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Tampilan Website Details Products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![image](img/web/deatils1.png)
+![image](img/web/deatils2.png)
 
-### `yarn build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Tampilan Mobile Details Products
+
+![image](img/mobileUser/details1.png)
+![image](img/mobileUser/details2.png)
+![image](img/mobileUser/details3.png)
+
+## Tampilan Website Cart
+
+![image](img/web/cart1.png)
+![image](img/web/cart2.png)
+
+
+## Tampilan Mobile Cart
+
+![image](img/mobileUser/cart1.png)
+![image](img/mobileUser/cart2.png)
+![image](img/mobileUser/cart3.png)
+
+
+## Tampilan Website History
+
+Ketika view details di click maka ada pop up untuk details transaction
+
+![image](img/web/history1.png)
+![image](img/web/history2.png)
+![image](img/web/detailsHistory.png)
+
+
+## Tampilan Mobile History
+
+![image](img/mobileUser/history.png)
+![image](img/mobileUser/detailsHistory.png)
+
+## Tampilan Website Profile
+
+![image](img/web/profile1.png)
+![image](img/web/profile2.png)
+
+
+## Tampilan Mobile Profile
+
+![image](img/mobileUser/profile1.png)
+![image](img/mobileUser/profile2.png)
+![image](img/mobileUser/profile3.png)
+![image](img/mobileUser/profile4.png)
+
+
+-------------------------------------------------------------------------
+
+
+Dibawah ini adalah sample screenshoot dari App Coffee Shop tampilan website dan mobile untuk Admin:
+
+
+## Tampilan Website Home
+
+![image](img/webAdmin/landingAdmin.png)
+
+## Tampilan Website Products
+
+Di page Products ini ada fitur Tambah Products
+
+![image](img/webAdmin/products.png)
+
+## Tampilan Website Details Products
+
+di Page ini ada fitur edit products dan delete products
+
+![image](img/webAdmin/detailsProducts.png)
+![image](img/webAdmin/edit.png)

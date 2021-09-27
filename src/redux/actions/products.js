@@ -7,7 +7,7 @@ export const ACTION_GET_ALL_PRODUCTS = () => {
         token: token
     }
     return (dispatch) => {
-        dispatch(allProductPending())
+        dispatch(allProductsPending())
         axios.get(`${API_URL}products`, { headers }).then((response) => {
             dispatch(allProductsFullfilled(response.data))
         }).catch((err) => {
@@ -16,9 +16,22 @@ export const ACTION_GET_ALL_PRODUCTS = () => {
     }
 }
 
-export const INSERT = (formData) => {
-    console.log(formData)
+export const ACTION_GET_SEARCH_PRODUCTS = (query) => {
+    const token = localStorage.getItem('token')
+    const headers = {
+        token: token
+    }
+    return (dispatch) => {
+        dispatch(allProductsPending())
+        axios.get(`${API_URL}products?search=${query}`, { headers }).then((response) => {
+            dispatch(allProductsFullfilled(response.data))
+        }).catch((err) => {
+            dispatch(allProductsRejected(err))
+        })
+    }
+}
 
+export const INSERT = (formData) => {
     return new Promise((resolve, reject) => {
         const token = localStorage.getItem('token')
         const headers = {
@@ -26,6 +39,21 @@ export const INSERT = (formData) => {
             token: token
         }
         axios.post(`${API_URL}products`, formData, { headers }).then((response) => {
+            resolve(response)
+        }).catch((err) => {
+            reject(err)
+        })
+    })
+}
+
+export const UPDATE = (formData, id) => {
+    return new Promise((resolve, reject) => {
+        const token = localStorage.getItem('token')
+        const headers = {
+            'Content-Type': "multipart/form-data",
+            token: token
+        }
+        axios.patch(`${API_URL}products/${id}`, formData, { headers }).then((response) => {
             resolve(response)
         }).catch((err) => {
             reject(err)
@@ -47,7 +75,7 @@ export const DELETE = (id) => {
     })
 }
 
-const allProductPending = () => {
+const allProductsPending = () => {
     return {
         type: "GET_ALL_PRODUCTS_PENDING"
     }

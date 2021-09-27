@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { API_URL } from "../helpers/env";
-import { ACTION_GET_ALL_PRODUCTS, DELETE } from "../redux/actions/products";
+import { DELETE } from "../redux/actions/products";
 import { INSERT_CART } from "../redux/actions/cart";
 import Nav from "../components/Nav";
 import Footer from "../components/Footer";
@@ -12,30 +12,27 @@ import "../css/Details.css";
 const Details = () => {
   const dispatch = useDispatch();
 
+  const { id } = useParams()
+
   const [details, setDetails] = useState([]);
 
   const data = useSelector((state) => state.products);
 
-  const countUser = useSelector((state) => state.user);
-  const dataUser = countUser.all;
-
-  const dataId = localStorage.getItem("idProduct");
-
   let [count, setCount] = useState(1);
 
   useEffect(() => {
-    const dataProducts = data.all;
-    
+    const dataProducts = data.all;    
 
     // eslint-disable-next-line array-callback-return
     const fill = dataProducts.filter((e) =>
       // eslint-disable-next-line eqeqeq
-      e.id == dataId && e.size == "L" ? e : undefined
+      e.id == id ?  e : undefined
     );
-    const total =  fill[0].price
+  
+    const subTotal =  fill[0].price
     setDetails(
       {...fill[0], 
-        total,
+        subTotal,
         qty: count,
         time: "",
         delivery_method: "",
@@ -51,7 +48,7 @@ const Details = () => {
     setCount(count);
     setDetails({
       ...details,
-      total: details.price * count,
+      subTotal: details.price * count,
       qty: count,
     });
   };
@@ -64,174 +61,79 @@ const Details = () => {
       setDetails({
         ...details,
         qty: count,
-        total: total,
+        subTotal: total,
       });
     }
   };
 
   const history = useHistory();
-  const handleEdit = () => {
-    const data = localStorage.getItem("idProduct");
-    const obj = JSON.parse(data);
-    history.push(`/edit/${obj}`);
+  const handleEdit = (id) => {
+    history.push(`/edit/${id}`);
   };
 
   const handleDelete = (id) => {
     DELETE(id)
       .then((res) => {
         alert(res.data.message);
-        dispatch(ACTION_GET_ALL_PRODUCTS());
+        history.push("/products");
       })
       .catch((err) => {
         alert(err.message);
       });
-
-    history.push("/products");
   };
 
   const handleCart = (products) => {
-    dispatch(INSERT_CART(products));
-    alert("Insert To Cart Success")
-    history.push('/products')
+    const payload = {
+      ...products,
+      products_id: products.id
+    }
+      dispatch(INSERT_CART(payload));
+      alert("Insert To Cart Success")
+      history.push('/products')
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setDetails({
-      ...details,
-      [name]: value,
-    })
+  const toCart = (products) => {
+    const payload = {
+      ...products,
+      products_id: products.id
+    }
+    dispatch(INSERT_CART(payload));
+    history.push('/cart')
   }
 
-  // console.log(details)
+  const numberWithCommas = (x) => {
+    if (x) {
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    } else {
+      return x
+    }
+  };
+
+  const token = localStorage.getItem("token");
+  const picture = localStorage.getItem("picture");
+  const level = localStorage.getItem("level");
+  
 
   return (
     <div>
       <div className="border-bottom navbarDetails">
-        <Nav isLogin={true} />
+        <Nav token={token} image={picture} level={level}/>
       </div>
 
       <section className="container-fluid details">
         <p className="fw-bold mt-3 navigation">
           Favorite & Promo{" "}
-          <span style={{ color: "#6A4029" }}> &gt; {details.name}</span>
+          <span style={{ color: "#6A4029" }}> &gt; {details.name_product}</span>
         </p>
         <div className="row justify-content-lg-between infoDeliv">
           <div className="col-lg-4 ms-lg-5 mt-lg-5 mt-3 left">
             <img src={API_URL + details.image} alt="detail" />
-            <div className="card mt-5 delivery">
-              <div className="card-body">
-                <h5 className="card-title fw-bold">Delivery and Time </h5>
-                <div className="card-text  flex-row justify-content-center ">
-                  <div className="row mt-lg-5 deliv">
-                    <div className="col-lg-3 mb-lg-0 mb-3 ms-lg-3 dineIn">
-                      <input
-                        type="radio"
-                        className="btn-check "
-                        name="delivery_method"
-                        value="Dine in"
-                        onChange={handleChange}
-                        id="btnradio1"
-                      />
-                      <label className="btn btn-outline" for="btnradio1">
-                        Dine in
-                      </label>
-                    </div>
-
-                    <div className="col-lg-4 mb-lg-0 mb-3 cod">
-                      <input
-                        type="radio"
-                        className="btn-check"
-                        name="delivery_method"
-                        value="Door delivery"
-                        onChange={handleChange}
-                        id="btnradio2"
-                        autocomplete="off"
-                      />
-                      <label className="btn btn-outline" for="btnradio2">
-                        Door Delivery
-                      </label>
-                    </div>
-
-                    <div className="col-lg-3 mb-lg-0 mb-3 pickUp">
-                      <input
-                        type="radio"
-                        className="btn-check"
-                        name="delivery_method"
-                        value="Pick up"
-                        onChange={handleChange}
-                        id="btnradio3"
-                        autocomplete="off"
-                      />
-                      <label className="btn btn-outline" for="btnradio3">
-                        Pick up
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="row mt-lg-5">
-                  <div className="col-lg-2 col-3 ms-lg-4 pt-2">
-                    <h6 className="fw-bold fs-5">Now</h6>
-                  </div>
-                  <div className="col-lg-2 col-3 yes">
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="timeOrder"
-                      value="yes"
-                      onChange={handleChange}
-                      id="optionsYes"
-                      autoComplete="off"
-                    />
-                    <label className="btn btn-outline" for="optionsYes">
-                      Yes
-                    </label>
-                  </div>
-
-                  <div className="col-lg-3 col-1 no">
-                    <input
-                      type="radio"
-                      className="btn-check"
-                      name="timeOrder"
-                      value="no"
-                      onChange={handleChange}
-                      id="optionsNo"
-                      autoComplete="off"
-                    />
-                    <label className="btn btn-outline" for="optionsNo">
-                      No
-                    </label>
-                  </div>
-                </div>
-
-                <div className="mb-lg-3 mt-lg-5 mt-3 row">
-                  <label
-                    for="inputSetTime"
-                    className="col-sm-3 col-form-label ms-lg-4 fw-bold fs-5"
-                  >
-                    Set Time
-                  </label>
-                  <div className="col-sm-8">
-                    <input
-                      type="text"
-                      className="form-control"
-                      name="time"
-                      value={details.time}
-                      onChange={handleChange}
-                      id="inputSetTime"
-                      placeholder="Enter time for reservation"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           <div className="col-lg-7 col-12 mt-2 mt-4 right">
             <div className="row infoProd">
               <h1 className="fw-bold col-lg-8 text-center titleProduct">
-                {details.name}
+                {details.name_product}
               </h1>
               <p className="mt-5 col-lg-8 description">{details.description}</p>
               <p className="mt-5 col-lg-5 timeDeliv">
@@ -271,8 +173,7 @@ const Details = () => {
                     </div>
                   </div>
                   <div className="col-lg-5 col-9 ps-lg-5 ps-5">
-                    {/* <h1 className="price">IDR {numberWithCommas(details.price)}</h1> */}
-                    <h1 className="price">IDR {details.total}</h1>
+                    <h1 className="price">IDR {numberWithCommas(details.subTotal)}</h1>
                   </div>
                 </div>
               </div>
@@ -281,16 +182,15 @@ const Details = () => {
                 <button
                   type="button"
                   onClick={() => handleCart(details)}
-                  className="btn add"
+                  className={ level === '0' ? "d-none" : "btn add"}
                 >
                   Add to Cart
                 </button>
                 <button
                   type="button"
-                  onClick={handleEdit}
-                  //  className="btn mt-4 btnEdit"
+                  onClick={() => handleEdit(details.id)}
                   className={
-                    dataUser.level === 1 ? "d-none" : "d-block btn mt-4 btnEdit"
+                    level === '1' ? "d-none" : "d-block btn mt-4 btnEdit"
                   }
                 >
                   Edit Product
@@ -298,9 +198,8 @@ const Details = () => {
                 <button
                   type="button"
                   onClick={() => handleDelete(details.id)}
-                  //  className="btn mt-4 btnDel"
                   className={
-                    dataUser.level === 1 ? "d-none" : "d-block btn mt-4 btnDel"
+                    level === '1' ? "d-none" : "d-block btn mt-4 btnDel"
                   }
                 >
                   Delete Product
@@ -314,14 +213,13 @@ const Details = () => {
       <section className="container-fluid position-absolute handleCekout">
         <div className="row">
           <div className="col-lg-3 position-absolute size">
-            <h4 className="pt-3 titleSize">Choise a size</h4>
+            <h4 className="pt-3 titleSize">Size Product</h4>
             <div className="list-group list-group-horizontal mt-3 listSize">
-              <div className="list-group-item me-4 reguler">R</div>
-              <div className="list-group-item me-4 large">L</div>
-              <div className="list-group-item extra">XL</div>
+              <div className="list-group-item me-4 reguler">{details.size}</div>
             </div>
           </div>
-          <div className="col-lg-8 position-absolute itemCart">
+
+          <div className={level === '1' ? "col-lg-8 position-absolute itemCart" :  "d-none"}>
             <div className="row">
               <div className="col-lg-2 col-3">
                 <img
@@ -331,10 +229,9 @@ const Details = () => {
                 />
               </div>
               <div className="col-lg-6 detailsCart">
-                <h5 className="nameProd">{details.name}</h5>
+                <h5 className="nameProd">{details.name_product}</h5>
                 <ul className="list-group ">
-                  <li className="list-group-item">x1 (Large)</li>
-                  <li className="list-group-item">x1 (Reguler)</li>
+                  <li className="list-group-item">x{details.qty} {details.size}</li>
                 </ul>
               </div>
               <div className="col-4 position-absolute checkout">
@@ -342,7 +239,7 @@ const Details = () => {
                   <div className="col-3">
                     <p>Checkout</p>
                   </div>
-                  <div className="col-5 arrow">
+                  <div className="col-5 arrow" onClick={() => toCart(details)}>
                     <FiArrowRight size={42} className="icon" />
                   </div>
                 </div>

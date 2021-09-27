@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch } from 'react-redux';
+import { ACTION_GET_USER } from '../redux/actions/user';
 import NavbarComp from "../components/Nav";
 import Check from "../svg/check.svg";
 import MapVisit from "../svg/map.svg";
@@ -8,6 +10,8 @@ import FooterComp from "../components/Footer";
 import "../css/Home.css";
 
 const Home = () => {
+
+  const dispatch = useDispatch()
 
   // eslint-disable-next-line no-unused-vars
   const [partner, setPartner] = useState([
@@ -141,10 +145,21 @@ const Home = () => {
     },
   ])
 
+  useEffect(() => {
+    const id = localStorage.getItem('id')
+    dispatch(ACTION_GET_USER(id))
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[])
+
+  const token = localStorage.getItem("token");
+  const picture = localStorage.getItem("picture");
+  const level = localStorage.getItem("level");
+
   return (
     <div>
       <div className="navbarHome">
-        <NavbarComp isLogin={false} />
+        <NavbarComp token={token} image={picture} level={level} />
       </div>
 
       {/* Jumbotron */}
