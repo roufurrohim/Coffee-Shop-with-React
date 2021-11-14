@@ -8,6 +8,7 @@ import Edit from '../pages/Edit'
 import Chart from '../pages/Chart'
 import History from '../pages/History';
 import Profile from '../pages/Profile'
+import NewProduct from '../pages/NewProduct';
 import Guard from './Guard'
 
 const Router = () => {
@@ -26,6 +27,8 @@ const Router = () => {
             </Route>
 
             <Guard path="/products" component={Products} />
+
+            <Guard path="/new-products" component={NewProduct} />
 
             <Guard path="/details/:id" component={Details} />
 

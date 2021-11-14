@@ -1,0 +1,11 @@
+.newProduct .navigation {
+    margin-left: 100px;
+}
+
+#chooseAdd {
+    width: 391px !important;
+    height: 88px;
+    background: #FFBA33 !important;
+    border-radius: 20px;
+ }
+ 

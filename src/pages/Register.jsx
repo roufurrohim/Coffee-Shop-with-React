@@ -51,12 +51,14 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const nameUser = form.email.slice(0, 4)
+    console.log(nameUser)
     const formData = new FormData();
     formData.append("email", form.email);
     formData.append("password", form.password);
     formData.append("phone", form.phone);
     formData.append("image", form.image);
-    formData.append("name", form.email);
+    formData.append("name", nameUser);
     formData.append("gender", form.gender);
     formData.append("level", form.level);
     formData.append("date", form.date);
@@ -69,7 +71,8 @@ const Register = () => {
       history.push("/products")
     })
     .catch((err) => {
-      alert(err.message)
+      const msg = err.response.data.message
+      alert(msg)
       resetInput();
     })
 
@@ -156,7 +159,7 @@ const Register = () => {
                     </FormGroup>
                     <FormGroup className="d-flex flex-column">
                       <Label for="image" className="labelImage">Image:</Label>
-                      <img width={100} height={100} src={form.imagePreview} alt="pict" className="my-2" />
+                      <img width={100} height={100} src={form.imagePreview} alt="pict" className={form.imagePreview === "" ? "d-none" : "my-2"} />
                       <Input
                         type="file"
                         name="image"

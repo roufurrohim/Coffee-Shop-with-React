@@ -104,10 +104,10 @@ const Edit = () => {
             </Col>
           </FormGroup>
           <FormGroup row>
-            <img src={edit.imagePreview} alt="preview" className="mt-lg-1 mt-5" />
             <Label for="image" sm={2} className="mb-3">
               Image :
             </Label>
+            <img src={edit.imagePreview} style={{width: "200px", height: "200px"}} alt="preview" className="mt-lg-1 mt-5" />
             <Col sm={10}>
               <Input
                 type="file"
