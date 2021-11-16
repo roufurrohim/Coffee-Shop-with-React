@@ -3,6 +3,7 @@
 App Coffee Shop ini hanya UI dibuat dengan menggunakan framework ReactJS,
 dengan penambahan reactstrap untuk tampilan responsivenya, dan react-router-dom untuk management pindah halaman dan juga untuk management data di frontend menggunakan redux. Website ini ada 2 versi untuk User dan untuk Admin.
 
+Untuk link repository backendnya click [ini](https://github.com/roufurrohim/tester)
 
 Dibawah ini adalah sample screenshoot dari App Coffee Shop tampilan website dan mobile untuk User
 
@@ -14,7 +15,6 @@ Website Home | Mobile Home
 Website Register | Mobile Register
 ----------------------|--------------------
 ![image](img/web/signUp.png) | ![image](img/mobileUser/register.png)
------------------------------| ![image](img/mobileUser/register2.png)
 
 Website Login | Mobile Login
 ----------------------|--------------------
@@ -25,27 +25,27 @@ Website Products | Mobile Products
 -------------------|----------------------
 ![image](img/web/products1.png)|![image](img/mobileUser/products1.png)
 ![image](img/web/products2.png)|![image](img/mobileUser/products2.png)
--------------------------------|![image](img/mobileUser/products3.png)
+
 
 
 Website Details Products |Mobile Details Products
 -------------------------|-----------------------
 ![image](img/web/deatils1.png)|![image](img/mobileUser/details1.png)
 ![image](img/web/deatils2.png)|![image](img/mobileUser/details2.png)
-------------------------------|![image](img/mobileUser/details3.png)
+
 
 Website Cart|Mobile Cart
 --------------------|----------------------
 ![image](img/web/cart1.png)|![image](img/mobileUser/cart1.png)
 ![image](img/web/cart2.png)|![image](img/mobileUser/cart2.png)
----------------------------|![image](img/mobileUser/cart3.png)
+
 
 
 Website History|Mobile History
 -------------------------|--------------------
 ![image](img/web/history1.png)|![image](img/mobileUser/history.png)
 ![image](img/web/history2.png)|![image](img/mobileUser/detailsHistory.png)
-![image](img/web/detailsHistory.png)|--------------------------
+
 >Ketika view details di click maka ada pop up untuk details transaction
 
 
@@ -53,8 +53,6 @@ Website Profile|Mobile Profile
 -------------------|--------------------
 ![image](img/web/profile1.png)|![image](img/mobileUser/profile1.png)
 ![image](img/web/profile2.png)|![image](img/mobileUser/profile2.png)
-------------------------------|![image](img/mobileUser/profile3.png)
-------------------------------|![image](img/mobileUser/profile4.png)
 
 
 >Dibawah ini adalah sample screenshoot dari App Coffee Shop tampilan website dan mobile untuk Admin:
