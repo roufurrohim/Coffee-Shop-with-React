@@ -44,10 +44,7 @@
     </li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
+    <li><a href="#gallery-project">Gallery Project</a></li>
   </ol>
 </details>
 
@@ -63,8 +60,6 @@ with the addition of reactstrap for responsive display, and react-router-dom for
 
 ### Built With
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
-
 * [React.js](https://reactjs.org/)
 * [Redux](https://redux.js.org/)
 * [React-Redux](https://react-redux.js.org/)
@@ -76,6 +71,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 <!-- GETTING STARTED -->
+<div id="getting-started"></div>
 ## Getting Started
 
 ### Prerequisites
@@ -104,6 +100,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 
 <!-- ROADMAP -->
+<div id="roadmap"></div>
 ## Roadmap
 
 - [x] Clone repository [backend](https://github.com/roufurrohim/tester)
@@ -114,6 +111,9 @@ This section should list any major frameworks/libraries used to bootstrap your p
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
+<!-- Gallery Project -->
+<div id="gallery-project"></div>
+## Gallery Project
 
 Below is a sample screenshot of the App Coffee Shop website and mobile display for users.
 
@@ -156,7 +156,7 @@ Website History|Mobile History
 ![image](img/web/history1.png)|![image](img/mobileUser/history.png)
 ![image](img/web/history2.png)|![image](img/mobileUser/detailsHistory.png)
 
->Ketika view details di click maka ada pop up untuk details transaction
+>When view details is clicked, there will be a pop up for transaction details
 
 
 Website Profile|Mobile Profile
@@ -165,16 +165,18 @@ Website Profile|Mobile Profile
 ![image](img/web/profile2.png)|![image](img/mobileUser/profile2.png)
 
 
->Dibawah ini adalah sample screenshoot dari App Coffee Shop tampilan website dan mobile untuk Admin:
+>Below is a sample screenshot of the App Coffee Shop website and mobile display for Admin:
 
 Website Home|Website Products
 ---------------------|--------------------
 ![image](img/webAdmin/landingAdmin.png)|![image](img/webAdmin/products.png)
 
->Di page Products ini ada fitur Tambah Products
+>On this Products page there is a Add Products feature
 
 Details Products|Details Products
 ---------------------|--------------------
 ![image](img/webAdmin/detailsProducts.png)|![image](img/webAdmin/edit.png)
 
->di Page ini ada fitur edit products dan delete products
+>On this page there is a feature to edit products and delete products
+
+<p align="right">(<a href="#top">back to top</a>)</p>
