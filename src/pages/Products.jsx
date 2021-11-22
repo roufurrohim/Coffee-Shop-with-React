@@ -29,29 +29,25 @@ const Products = () => {
   const [promo, setPromo] = useState([
     {
       id: "pc1",
-      image:
-        "https://s3-alpha-sig.figma.com/img/5272/76a9/8d88c62a29339c6f83f29e8f40c20178?Expires=1632700800&Signature=hgNrfi21x8HpSbbrVashM13vikYetwr3eIfd5nb-jdje7O2lW53gpR63sc~9La~~w3i8QaW5soMFTt2Hv4EXq7-cj~xZqGTJtgnjBJm0SuXepY1sCV5PoFecywJTpANqd66IkuLxi8iXZ1ozHYfHKYTzubDO~Ue8QfMvgIa5ISSEEmiahc5HtEv~xr5s8zdYs~ALHxvR9lKYcf1POZxYSzBQ0vXBmIs1uOp68EoINXW6u3BC31uFXGdkbo3SltZAIQXq7QyKTVVntnFwFPW1Io0iqMbxsiWe78E5v7afwW~CU3jjS-orATbUUWGT1HhTMXZEg1I0n0by2WQrXDcDnQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "mother.png",
       name: "HAPPY MOTHER’S DAY!",
       description: "Get one of our favorite menu for free!",
     },
     {
       id: "pc2",
-      image:
-        "https://s3-alpha-sig.figma.com/img/ed87/b600/bcd624c9cdfab5f48a586cfe014785b0?Expires=1632700800&Signature=WIkM9MxXXqp850wDzsim5ubd57utPC6kOXkJgYvvLU5lJ2ibDrxv5oFdTSfCZ8vJZLHp3edMrLXAKTSIhDPYWbD7VO8qXhQ3mJ1BSAvjflUIrZnwwDdyJsePnKznQ0pyI10En8z~pHNUv1Mg3L6kgKt5pQ1ksosiSM~ty7ii3lqM3Xz0U1~uC-XSHJsb-kcFRZwkzwTA0QWKHj7bIRWkK2y8UfEuEgN22Wmnhbwbd7WCSdiR7sK0DnVQj3jlvbNtOK~ItuTxbbBTCK8YF0GZlHT2J0W8qk7sePBSTFpr7Av48Kruas6bC-BKqsAO3Dl9fJBKsYfdEYB1s5~xCqH4cw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "father.png",
       name: "Get a cup of coffee for free on sunday morning",
       description: "Only at 7 to 9 AM",
     },
     {
       id: "pc3",
-      image:
-        "https://s3-alpha-sig.figma.com/img/5272/76a9/8d88c62a29339c6f83f29e8f40c20178?Expires=1632700800&Signature=hgNrfi21x8HpSbbrVashM13vikYetwr3eIfd5nb-jdje7O2lW53gpR63sc~9La~~w3i8QaW5soMFTt2Hv4EXq7-cj~xZqGTJtgnjBJm0SuXepY1sCV5PoFecywJTpANqd66IkuLxi8iXZ1ozHYfHKYTzubDO~Ue8QfMvgIa5ISSEEmiahc5HtEv~xr5s8zdYs~ALHxvR9lKYcf1POZxYSzBQ0vXBmIs1uOp68EoINXW6u3BC31uFXGdkbo3SltZAIQXq7QyKTVVntnFwFPW1Io0iqMbxsiWe78E5v7afwW~CU3jjS-orATbUUWGT1HhTMXZEg1I0n0by2WQrXDcDnQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "mother.png",
       name: "HAPPY MOTHER’S DAY!",
       description: "Get one of our favorite menu for free!",
     },
     {
       id: "pc4",
-      image:
-        "https://s3-alpha-sig.figma.com/img/e25b/8a97/346f786692a9f23c7fc959db9981ae5c?Expires=1632700800&Signature=H~kN019KVYavlea1AWGpBuCwEZTvIyliaYevckWOwWmt1PATnJkhCGn8VqWnpA8bY09E6RVmc1CRbGjqoZZRnnHuk4Pfra2-UqpEChYJqOHW5VlZpCDQpIj-q9q0he893nCeTXbfASPOHTwQC0fVKE~xKs9yrf3tDk8~GajvQndhuDf5IhvnLcjbaLe0wtM2vl0P~dsQxYUDnCLHqdivqCAvbasjzTWMxMHPjSMzEO2FqXPSrYkJMoV1Qxhk-E85Zq-fS0CBH2O2nplZ20lDm4QOw8e6ZFlKeepkFUxPKDwaKTMlMuhFDwyrrcgoCtIyD4nWX2~EhCR7DnwsmgPBTQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "gm.png",
       name: "HAPPY HALLOWEEN!",
       description:
         "Do you like chicken wings? Get 1 free only if you buy pinky promise",
@@ -192,7 +188,7 @@ const Products = () => {
                     <div className="row g-0">
                       <div className="col-md-4 col-4">
                         <img
-                          src={e.image}
+                          src={`${API_URL}helpers/${e.image}`}
                           style={{ width: "85px", height: "94px" }}
                           alt="pict"
                         />

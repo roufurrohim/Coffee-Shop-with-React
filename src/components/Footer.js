@@ -2,6 +2,7 @@ import React from "react";
 import Fb from "../svg/fb.svg";
 import Twit from "../svg/twitter.svg";
 import Ig from "../svg/ig.svg";
+import { API_URL } from "../helpers/env";
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         <div className="col-lg-3 col-md-4 mb-3 ms-md-5 me-lg-5">
           <div className="d-inline-flex align-items-center mb-4">
             <img
-              src="https://s3-alpha-sig.figma.com/img/e8f1/50f4/dd316b36489ed2498bae94124e7ee124?Expires=1632700800&Signature=Ct~qVplgCM0aPE~SFXenm~R6Tggm~XEP0dAsgJqqFXnFAb8EjIg0dNMuzupCR7OHesFOexlzeh3JAN51i3clQF3SPqoWFnQ8RoeRKpyoFsbTnYVUUYA5vONFpQ5CE~JvNjuI00N1vqaY1wrcC6kuj68nYg4dYA8yCZdUSAimBd8-yAbGLlK-D~QX5UDOftMNtAnBldlHTAPChs606p5L2gs5zbgFDjqQ0f1WAMH2n-aNmK030~k2hydGIBJdkyvVcjH-J6x2fy5df38rsZ-dRBjLpfE18gipMKAEPATukAM4wmM4uZy3r6lI5xW1tJRff9uCePtUv7g1vNPBD85eMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+              src={`${API_URL}helpers/logo.png`}
               style={{ width: "30px", height: "30px" }}
               alt="Iconig"
               className="icon"

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
 import { ACTION_GET_USER } from '../redux/actions/user';
+import { API_URL } from '../helpers/env';
 import NavbarComp from "../components/Nav";
 import Check from "../svg/check.svg";
 import MapVisit from "../svg/map.svg";
@@ -18,32 +19,27 @@ const Home = () => {
     {
       id: 1,
       name: "netflix",
-      image:
-        "https://s3-alpha-sig.figma.com/img/fbb6/95dd/8c01553b064b0be13807f8af91e5941b?Expires=1632700800&Signature=KfF64LGTfQjuETIRT9XER~~g6s4Gs4TAG2HYismJ6O3LMbGEYsvZUgWvY9KSR2o2TwX0T0fh9bg4y7~vsjRquITW8mCGmYe8vKRUABWuztXgow3Mv~Jw1fNlJeY-Ls0QdMexhW~QCzNt31WKNVXQrXzpYp4~HziTVvrGYHQAXa6qAq0Mc7X5AG9PQ6zj5Py4rwIGtbabA0PJDkF~NwiGJdpOpVqgZ8hr1gJMecDNdcD2rLNOx8Ab3mIn5kT-wU9EpM-pucolygqwW-eaFQVseuR1Q6baotlxLFRyW26kyuUre0kN945fB4nN~X7tJEiQs0yRwwlCPVwyeYWFoHJrWg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "netflix.png",
     },
     {
       id: 2,
       name: "reddit",
-      image:
-        "https://s3-alpha-sig.figma.com/img/e7e9/7f2a/15a82cbac8fde655da7a0b48b4a0d093?Expires=1632700800&Signature=EvtgRg2Cj3MqVJmE5p-Hi01-P44PKAyrWYbX6nrUR-854FTQDwKU3hyInw-lF4sulhWQ1OTEp0aUu1cjmu3Q70Oz~Y6SIQTscgY6bU~wra5bkP7m7ABHcby4x3-qnXZHW0KuD0u0A6sGAMlR5Tvk~6YKigMOBMSk5wMY8AoNYszTZ3rTxwupp2bIMqjnj69sEcuzcrNBjXFD9Tq-mgN5B066MBhq27wosX9plwrDa693taPvh0aQ7TOD~70O5HELF7sLoB4TNlbVdE-yehHjUwXHvRBr7-ubS7FMUJ8yAxRb9w8IIjoK5TX8xq7qm38PpjDen4yk4dVS9c~XQdcTNg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "reddit.png",
     },
     {
       id: 3,
       name: "amazon",
-      image:
-        "https://s3-alpha-sig.figma.com/img/9b3d/1bce/29eea1a4afb6e717243bc96076cc6750?Expires=1632700800&Signature=E53IR5bBX1RIqjwoClpYt3~BPHVA-Li1yR8uxWeuLW9D15Bp5sJzijInGKz4hKtbsQ8EH7qJRhGihOpSOGNN47AW5ToBA9g0yBsyGTOC8OvrXxfmccvuGL1ZPBwZ5u-AW6IdivXsruJLnyN1NEr~HBJvklpxDYywvVnt~jIuuY0tvE-k1kx2DPM9B4Hy~TxJcI~Q3z3iBJdsnzFgqjTj6joXrVhsCrprEMcRDpoH~W~w2z2MlQqtOLsWCQ2ePYYtoDp5BCEBXhNb-bQPqd7Oyifl9Zxu9lFnPYfsK4Xy-PeWq4ce93WD89rW~bYUR1S9MFf6ZY38-tRlmLu9dw~yqw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "amazon.png",
     },
     {
       id: 4,
       name: "discord",
-      image:
-        "https://s3-alpha-sig.figma.com/img/2607/51ed/f193c9a610ba070a7eab9958624aa513?Expires=1632700800&Signature=cTQijRww~KbG-s67rh1jeWyvgW8RCDQdaBH8v5cqG3USMAxewNVnXh1HTYeY~jLO0BUsI5T-lAOX8LueCPt~ywOH0etIN7zS4PwF7SkdjbwNTLqxdRTKn3OobhPQo83Sc-QDhaVZU9Lo~~ARnYPRIwWmzz3eM4F3JqxKQPUr5eVkOYsxffFs~TD2xCBDnnevF6KmjKLxgnDeAU8DDCgnGS84Mv8HbCIESVYyx-lhpVS1~norWz3qqREHV8Ln95IUweskpHUY8oUOpSW1BDWVcVbBpqu64fx1ATGGWxE1iQT8JLi~-8hCAy8k7tDCZUfUXEZfPxUP4JdU8Km2rtQ79g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "discord.png",
     },
     {
       id: 5,
       name: "spotify",
-      image:
-        "https://s3-alpha-sig.figma.com/img/0b7c/a72d/624c77047ed5c2b5194caf5e5e1a00f2?Expires=1632700800&Signature=dNaE4yTfn9PJn7YOMqI2Pjc5HUyTd~JYynRGYnDoreQcxDszmXm-SjdVfcSNaf81dNaHAkP8odsATA5itS6A3Ylyv9bqWXnhPPFdubDp9VnfDQ6yyugDy0iomwFgmhN4iyaupvzMl83eV~dGjz4e~iM9eO36Szhc2HFyhn7ZaEXrKzXF99Lc~zULH0EIPM1DkabDnQ9LiqvrhIJqBfxW2pag2TXg9M3nYDvmlN~xBhLVmpKV4Tv1lSsNq0gD19eK0vm0ARzqFckuFOsQbrxhLv~~w1n54~5EBHROIWynH8d7E0GNetZ46rmJHE2yYw-0-1qm9tHo~zsBbcf4MQsudA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "spotify.png",
     },
   ]);
 
@@ -52,8 +48,7 @@ const Home = () => {
     {
       id: 1,
       name: "Viez Robert",
-      image:
-        "https://s3-alpha-sig.figma.com/img/7b52/c50d/64efec4c75c3e34f6408021730b20d9a?Expires=1632700800&Signature=MBe7lvzwKIs-C7~Tqmza~MiiEZRgOxVu~wwX9vO-i2CkrDxbELlcg8poSuz4OXEh4h5vrZbUOFPSY-tgceiruFUexdwJmfQvD10U8scqLiPFl~rCO8lDbt7mZUHkCuu2NOzmb--jwCaBmkdPaKFFKOnv9fLfp7FNWRhechtJ5w8FYyVTaUxxoFaQD3HsP73i~TOcOd4FTqPQWVBPjt6eq~l8Wsfh-jbCitpSOTrxTQha9C4tBniZsYCIS8kiiIZlbK4z8x7lIJSMXLrYeEHBexygRmgQflqTJxjnfwXAT0t7lq5Vrl26TTrhi02A4fQEyfSLf6HgKGyRe8FKmbThow__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "viez.png",
       address: "Warsaw, Poland",
       ratting: 4.5,
       comment:
@@ -62,8 +57,7 @@ const Home = () => {
     {
       id: 2,
       name: "Yessica Christy",
-      image:
-        "https://s3-alpha-sig.figma.com/img/4efc/2b65/3098956f84b1822f2eb7e8ed84a31750?Expires=1632700800&Signature=BbqZFV~nodw8VgzR-p4~-T09yNRmpTJmoAqhQYfzwsb1~xRHwd2fTzmHj7QJ-5gZ1Pl95LstPjwkt8yodLriqKgMqpotFdVUZxWyDWylFjNCUag7ZJpX1X~jgHTAhcXrEN~D7TygpbNJkyHoLmswR-hSTF~Cwa8wMQ~X7td43JXtbZ8bwW-U6OmknCWAwupknk9d6wC7mVB8pk8P7uFLQXPsD8QxbRZmqZKwqPke7GYzkfkRdnQvlbT-jha0QeEvbCFHPsBWf4hDwk01VPWW5mSCxs9dviHhvEQrbKD2WzgvzezdHR-GBQ6PnhVgIplUl9UQYy72RycjLZEeSFRy7g__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "yessica.png",
       address: "Shanxi, China",
       ratting: 4.3,
       comment:
@@ -72,8 +66,7 @@ const Home = () => {
     {
       id: 3,
       name: "Kim Young Jou",
-      image:
-        "https://s3-alpha-sig.figma.com/img/b0e0/b9a7/2a3108aed3c607327c6c1eb79c47366c?Expires=1632700800&Signature=hfJnCNTSvfkMCqpDrv7Lsk4fYZEJ5d3TI62K2k4cpZEBx4v4Uc2m4EBZO5pAWLd11mg-uKyE8RcHld00INRP0e4c6heRuvMeAF0YqFxhVbhjq8ZzZBhDXxXcQmvUuA~hthoNR2SLRbJnXEa0wS9GEFVG6zmj0GMmgNieXLdbthYGNMuCjLrttHodh1qkRHMgKuCvwnuLWl9hA39FDSolFpOh9gQto3J7U4NoYnWESeOngQAx3OS4soXrhAM7anUknz9-1J2w2pFtKZKT5V~1wmoyW2ydphxyQBKbcReSytRRaM1TnR2pi82~raC4TnG3xHKojFbqMWolyc9kPs1-rQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "kim.png",
       address: "Seoul, South Korea",
       ratting: 4.1,
       comment:
@@ -86,8 +79,7 @@ const Home = () => {
     {
       id: "p1",
       name: "Hazelnut Latte",
-      image:
-        "https://s3-alpha-sig.figma.com/img/b8f7/0e2a/0d98dd6a1ea259209e5b715734ee5a22?Expires=1632700800&Signature=dUbLCRYZJb6n44VvLjbhqzSCQIVFT2TfqXBAyCFVZ2fhYEqVmMeOui32fXiBreakS4wej6VGrj0o3clWU502nR8nrQgKiHBzHjSY6KCnRb62couIb67KZPASmNtSGo6ufLKTmWaBX-hBl9O9cFQh2UPFW-bZL-tjJIKP0-lwJb0~v7GrygNzF0615wmJpKL--oR-RE4pWMIzOGONeORFVCEg86NtXYE~muPrhCRJb2gGvBKeixFtYHYwaRX6SU2~EYi70-XBQxvkZnSEoeX6CLaUh0mWwaN56-VIvUvPenkLJoO0Nr71m8gzw-dsRafLR4gyWO87UizqfDu1SweN0Q__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "hazelnut.png",
       size: "L",
       price: 25000,
       description: [
@@ -105,8 +97,7 @@ const Home = () => {
     {
       id: "p2",
       name: "Pinky Promise",
-      image:
-        "https://s3-alpha-sig.figma.com/img/1195/e3b7/a63f096d3edcb57b0bc937039acae071?Expires=1632700800&Signature=UyBEL9iIsXhrgLrXJulOiOjZP2aYB8WJz42Uz5NbZk4QY8gnfzpGfwTzhLVUCkkgn2RPOMFEnW9-LlLRcQE7DtYbGBZD9F8EvHnFDLCf~8rrZh1GhfhWIgxTknfDYcx0saW~3RtiopOrfubkppcLBfXfkF6upv1iEZjJ3aGbJWBeFavEa~03VcFi0f8v2LXpK2mEDT4ASyVqoWKR0Uhrkvl~BKM-XrS~Dubf2OjXQ3PeuBR6jGETuM7Y3BqGA8w6~JxkbSzJcwF47OWCzNdOZ00EJo465TjR~CnjCVO-mKX7HzBZMMG6Zy9XK6-OwiBgIzGeNmqPrVkVlw1Kz5KrDw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "pinky.png",
       size: "L",
       price: 25000,
       description: [
@@ -125,8 +116,7 @@ const Home = () => {
     {
       id: "p3",
       name: "Chicken Fire Wings",
-      image:
-        "https://s3-alpha-sig.figma.com/img/01c2/516d/130f4255d3fd6c5a42948d74ac2a14f4?Expires=1632700800&Signature=LpCzX5pkZvfvDR9VQ43KP3xaVj8ENotqQKENrzIDJi4rzM2SSddWblXkpN9lExUW1Lt~uQGcXj~ZFQ-S3RRby9NUb6CEElQmEvq62dI2FISL233cFnk643GH6dyPzrbFgiMCMPu2Vv9XQfNmAWKDrnkH0RfPM88dCGwAl-zWjwIfS-LN6-6YOzBkZfv-FfhJPwRPMunQS7jM3TuYTgoR598gjuiTKyCRf3UAB6doehYcYCaVupQmZ7V5uMDGblWSgyZ7HmB7EnnfQnM0pHqFC5RABPwwVff2qmbbc2DjcwJnjAdG8zluIopJQMPTtU~2SD3cNnENd77u0ueBYIo7Fg__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA",
+      image: "chicken.png",
       size: "L",
       price: 30000,
       description: [
@@ -267,7 +257,7 @@ const Home = () => {
         <div className="row  d-flex align-items-lg-center justify-content-lg-center">
           <div className="d-lg-block d-none col-lg-4 team position-relative">
             <img
-              src="https://s3-alpha-sig.figma.com/img/8f54/38af/1614e4f251061e5ddda15a8106a888d0?Expires=1632700800&Signature=do91heLA8xOHoMn6vA57K1opKWtGQU9n9ISfkaiIOa3Sirm6b7FmJFc99RBxpmNNzCMmlR-sRw~swgVMz4zxyNx-PExyvC13Tqgif1YRwbCoI1caYiiGs6ZwGbn~x8IH08n2pjBtK~XqK82bj1DDCkH78EubUuzOYVlhaaXj6TlSA9UDfSSTBi85ZWJedOuap21qvCzXlcBi6YznPXtY0MRBWnNk~9HBIlDIIQ3IZbmwWCJkXgFetXcybK3Zj8kCFi74M-qnzSC7yu-6Go5XVYIfUrQOeZ2dp-N1~51Ay54I84LEu3tF54CtmRaw-BJfI1y9eHJCi1X6VRWfQ9srUw__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+              src={`${API_URL}helpers/team.jpeg`}
               alt="Team Work"
             />
           </div>
@@ -334,7 +324,7 @@ const Home = () => {
               style={{ width: "20rem", height: "32rem" }}
             >
               <img
-                src={e.image}
+                src={`${API_URL}helpers/${e.image}`}
                 className="rounded-pill position-absolute imgCard"
                 style={{ width: "50%", height: "32%" }}
                 alt="Product 1"
@@ -392,7 +382,7 @@ const Home = () => {
         <div className="row row-cols-md-3 pb-5 justify-content-center align-items-center ">
           {partner.map((e, i) => (
             <div key={i} id={e.id} className="col-lg-2">
-              <img src={e.image} alt={e.name} className="img-fluid" />
+              <img src={`${API_URL}helpers/${e.image}`} alt={e.name} className="img-fluid" />
             </div>
           ))}
         </div>
@@ -417,8 +407,8 @@ const Home = () => {
                     className="row d-flex justify-content-lg-evenly align-content-center"
                   >
                     <img
-                      src={e.image}
-                      style={{ width: "80px", height: "50px" }}
+                      src={`${API_URL}helpers/${e.image}`}
+                      style={{ width: "80px", height: "55px" }}
                       className="card-img-top rounded-circle col-2"
                       alt="pict"
                     />

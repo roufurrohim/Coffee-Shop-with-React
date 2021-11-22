@@ -13,7 +13,7 @@ import {
   Form,
   Input,
 } from "reactstrap";
-import { API_URL } from '../helpers/env';
+import { API_URL } from "../helpers/env";
 
 const NavbarItem = ({ level, token, image, change, searchProd, submit }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -28,7 +28,7 @@ const NavbarItem = ({ level, token, image, change, searchProd, submit }) => {
           className="d-flex justify-content-center align-item-center"
         >
           <img
-            src="https://s3-alpha-sig.figma.com/img/e8f1/50f4/dd316b36489ed2498bae94124e7ee124?Expires=1632700800&Signature=Ct~qVplgCM0aPE~SFXenm~R6Tggm~XEP0dAsgJqqFXnFAb8EjIg0dNMuzupCR7OHesFOexlzeh3JAN51i3clQF3SPqoWFnQ8RoeRKpyoFsbTnYVUUYA5vONFpQ5CE~JvNjuI00N1vqaY1wrcC6kuj68nYg4dYA8yCZdUSAimBd8-yAbGLlK-D~QX5UDOftMNtAnBldlHTAPChs606p5L2gs5zbgFDjqQ0f1WAMH2n-aNmK030~k2hydGIBJdkyvVcjH-J6x2fy5df38rsZ-dRBjLpfE18gipMKAEPATukAM4wmM4uZy3r6lI5xW1tJRff9uCePtUv7g1vNPBD85eMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+            src={`${API_URL}helpers/logo.png`}
             style={{
               width: "33px",
               height: "33px",
@@ -48,22 +48,50 @@ const NavbarItem = ({ level, token, image, change, searchProd, submit }) => {
             </NavLink>
 
             <NavLink id="RouterNavLink" className="products" to="/products">
-                Products
+              Products
             </NavLink>
 
-            <NavLink id="RouterNavLink" className={level === null ? "d-block" : level === '1' ? "yourCart" : "d-none"} to="/cart">
+            <NavLink
+              id="RouterNavLink"
+              className={
+                level === null
+                  ? "d-block"
+                  : level === "1"
+                  ? "yourCart"
+                  : "d-none"
+              }
+              to="/cart"
+            >
               Your Cart
             </NavLink>
-            
-            <NavLink id="RouterNavLink" className={ level === '0' ? "d-block" : "d-none"} to="#">
+
+            <NavLink
+              id="RouterNavLink"
+              className={level === "0" ? "d-block" : "d-none"}
+              to="#"
+            >
               Orders
             </NavLink>
-            
-            <NavLink id="RouterNavLink" className={ level === '0' ? "d-block" : "d-none"} to="#">
+
+            <NavLink
+              id="RouterNavLink"
+              className={level === "0" ? "d-block" : "d-none"}
+              to="#"
+            >
               Dashboard
             </NavLink>
 
-            <NavLink id="RouterNavLink" className={level === null ? "d-block" : level === '1' ? "history" : "d-none"} to="/history">
+            <NavLink
+              id="RouterNavLink"
+              className={
+                level === null
+                  ? "d-block"
+                  : level === "1"
+                  ? "history"
+                  : "d-none"
+              }
+              to="/history"
+            >
               History
             </NavLink>
           </Nav>
@@ -106,7 +134,7 @@ const NavbarItem = ({ level, token, image, change, searchProd, submit }) => {
                     id="search"
                     value={searchProd}
                     placeholder="Search"
-                    onChange={(e)=> change(e)}
+                    onChange={(e) => change(e)}
                   />
                 </Form>
               </NavItem>
@@ -120,11 +148,14 @@ const NavbarItem = ({ level, token, image, change, searchProd, submit }) => {
 
               <NavLink to="/profile">
                 <button type="submit" className="btn">
-                  
                   <img
-                    src={image === undefined ? null : API_URL+image}
+                    src={image === undefined ? null : API_URL + image}
                     alt="profile"
-                    style={{ width: "40px", height: "40px", objectFit: "cover" }}
+                    style={{
+                      width: "40px",
+                      height: "40px",
+                      objectFit: "cover",
+                    }}
                     className=" rounded-circle"
                   />
                 </button>

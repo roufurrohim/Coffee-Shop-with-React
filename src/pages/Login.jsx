@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { ACTION_GET_USER, LOGIN } from '../redux/actions/user';
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import {API_URL} from '../helpers/env'
 import FooterComp from "../components/Footer";
 
 const Login = () => {
@@ -79,7 +80,7 @@ const Login = () => {
                 <div className="navbar-brand text-dark" onClick={toHome}>
                   <div className="d-flex justify-content-center align-items-center">
                     <img
-                        src="https://s3-alpha-sig.figma.com/img/e8f1/50f4/dd316b36489ed2498bae94124e7ee124?Expires=1632700800&Signature=Ct~qVplgCM0aPE~SFXenm~R6Tggm~XEP0dAsgJqqFXnFAb8EjIg0dNMuzupCR7OHesFOexlzeh3JAN51i3clQF3SPqoWFnQ8RoeRKpyoFsbTnYVUUYA5vONFpQ5CE~JvNjuI00N1vqaY1wrcC6kuj68nYg4dYA8yCZdUSAimBd8-yAbGLlK-D~QX5UDOftMNtAnBldlHTAPChs606p5L2gs5zbgFDjqQ0f1WAMH2n-aNmK030~k2hydGIBJdkyvVcjH-J6x2fy5df38rsZ-dRBjLpfE18gipMKAEPATukAM4wmM4uZy3r6lI5xW1tJRff9uCePtUv7g1vNPBD85eMA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+                        src={`${API_URL}helpers/logo.png`}
                         alt="Logo"
                         style={{width: "33px",
                         height: "33px", marginRight:'5px'}}
@@ -144,7 +145,7 @@ const Login = () => {
                         >
                           <span className="btn-label">
                             <img
-                              src="https://s3-alpha-sig.figma.com/img/f881/84c6/8dee88f348660b174d22c163e0848498?Expires=1632700800&Signature=Qtuel-V93oLZkhCvLVXCaQkdrg-V-r2Ue5oZRqjY4BtWgzoBE0ovmhYNR0jOfby8qQz9uOH26u2Z3FbiJGAsuArmUQxcxtXl1v1BHv3t4L3zLDWWQLKA8zURye-IFSFIt63a-BuN3V-Rokv3rkWgZDl0uqdYj7SujjpjykH9AckYoaVrkD4vNeV3a4LdYyaqBdE46nsawV2lftrftfrObVLfAbjnOh73VUHb1eS87F--bn7G0qTy~kqIe5amrEmcaUAG0vPCEmwdSxTPl4jC0uq0bxy2rb8I9onrm7MqB6QPcCWswP~V6hkZaMKt686syODRZoHZLgjY4rMk1GtpmA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+                              src={`${API_URL}helpers/google.png`}
                               style={{ width: "26px", height: "26px" }}
                               alt="google"
                               className="me-2"
