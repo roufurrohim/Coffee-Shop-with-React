@@ -35,6 +35,7 @@
         <li><a href="#built-with">Built With</a></li>
       </ul>
     </li>
+    <li><a href="#demo">Demo</a></li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
@@ -69,9 +70,25 @@ with the addition of reactstrap for responsive display, and react-router-dom for
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
+<!-- GETTING STARTED -->
+<div id="demo"></div>
+
+## Demo
+This is a link to demo [Coffee Shop](https://coffee-shop-bhrw7dn1d-roufurrohim.vercel.app/)
+- Login as user
+  ```
+  email: zulaikha17@gmail.com
+  pass: 123abc
+  ```
+- Login as admin
+  ```
+  email: admin@mail.com
+  pass: 123abc
+  ```
 
 <!-- GETTING STARTED -->
 <div id="getting-started"></div>
+
 ## Getting Started
 
 ### Prerequisites
