@@ -12,10 +12,7 @@
   <p align="center">
     Coffee Shop is a simple point of sale web application.
     <br />
-    <a href="https://github.com/roufurrohim/Coffee-Shop-with-React"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://coffee-shop-eight-puce.vercel.app/">View Demo</a>
     ·
     <a href="https://github.com/roufurrohim/Coffee-Shop-with-React">Report Bug</a>
     ·
@@ -73,8 +70,8 @@ with the addition of reactstrap for responsive display, and react-router-dom for
 <!-- GETTING STARTED -->
 <div id="demo"></div>
 
-## Demo
-This is a link to demo [Coffee Shop](https://coffee-shop-bhrw7dn1d-roufurrohim.vercel.app/)
+## View Demo
+This is a link to demo [Coffee Shop](https://coffee-shop-eight-puce.vercel.app/)
 - Login as user
   ```
   email: zulaikha17@gmail.com
@@ -122,9 +119,11 @@ This is a link to demo [Coffee Shop](https://coffee-shop-bhrw7dn1d-roufurrohim.v
 
 - [x] Clone repository [backend](https://github.com/roufurrohim/tester)
 - [x] Add file environtment
+- [ ] Clone this repository [frontend](https://github.com/roufurrohim/Coffee-Shop-with-React)
+- [x] Add file environtment
 - [ ] Run Backend with `node app.js`
 - [ ] Run this project with `npm start`
-- [ ] Sign Up
+- [ ] Sign Up or Login
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
