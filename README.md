@@ -115,6 +115,7 @@ This is a link to demo [Coffee Shop](https://coffee-shop-eight-puce.vercel.app/)
 
 <!-- ROADMAP -->
 <div id="roadmap"></div>
+
 ## Roadmap
 
 - [x] Clone repository [backend](https://github.com/roufurrohim/tester)
@@ -129,6 +130,7 @@ This is a link to demo [Coffee Shop](https://coffee-shop-eight-puce.vercel.app/)
 
 <!-- Gallery Project -->
 <div id="gallery-project"></div>
+
 ## Gallery Project
 
 Below is a sample screenshot of the App Coffee Shop website and mobile display for users.
