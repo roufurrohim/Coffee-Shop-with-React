@@ -96,7 +96,7 @@ This is a link to demo [Coffee Shop](https://coffee-shop-eight-puce.vercel.app/)
 
 ### Installation
 
-1. Get & Clone a API Key at [Backend for this project ](https://github.com/roufurrohim/tester)
+1. Get & Clone a API Key at [Backend for this project ](https://github.com/roufurrohim/cf-backend)
 2. Clone the repo
    ```sh
    git clone https://github.com/roufurrohim/Coffee-Shop-with-React
